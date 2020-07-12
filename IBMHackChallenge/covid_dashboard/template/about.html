@@ -1,0 +1,192 @@
+<html>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {box-sizing: border-box;}
+
+        body {
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+          background-color:#e1e2e3;
+          color:black;
+        }
+
+        .topnav {
+          overflow: hidden;
+          background-color: #e9e9e9;
+        }
+
+        .topnav a {
+          float: left;
+          display: block;
+          color: black;
+          text-align: center;
+          padding: 21px 16px;
+          text-decoration: none;
+          font-size: 17px;
+        }
+
+        .topnav a:hover {
+          background-color: #ddd;
+          color: black;
+        }
+
+        .topnav a.active {
+          background-color: #184569;
+          color: white;
+        }
+
+        .topnav .search-container {
+          float: right;
+        }
+
+        .topnav input[type=text] {
+          padding: 6px;
+          margin-top: 8px;
+          font-size: 20px;
+          border: none;
+          width: 550px;
+          height: 46px;
+        }
+
+        .topnav .search-container button {
+          float: right;
+          padding: 6px 10px;
+          margin-top: 8px;
+          margin-right: 16px;
+          background: #ddd;
+          font-size: 20px;
+          border: none;
+          cursor: pointer;
+          height:46px;
+        }
+
+        .topnav .search-container button:hover {
+          background: #ccc;
+        }
+
+        @media screen and (max-width: 600px) {
+          .topnav .search-container {
+            float: none;
+            height:46px;
+          }
+          .topnav a, .topnav input[type=text], .topnav .search-container button {
+            float: none;
+            display: block;
+            text-align: left;
+            width: 100%;
+            margin: 0;
+            padding: 14px;
+            height:46px;
+
+          }
+          .topnav input[type=text] {
+            border: 1px solid #ccc;
+          }
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+
+        /* Create two equal columns that floats next to each other */
+        .column {
+          float: left;
+          width: 50%;
+          padding: 10px;
+          height: 300px; /* Should be removed. Only for demonstration */
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        .about{
+            padding-left:20px;
+            padding-right:20px;
+            text-align: justify;
+            text-justify: inter-word;
+            background-color:#e9e9e9;
+            color:black;
+         }
+         .about h1{
+            color: #184569;
+         }
+         .footer {
+           position: fixed;
+           left: 0;
+           bottom: 0;
+           width: 100%;
+           background-color: #184569;
+           color: white;
+           text-align: center;
+        }
+
+        </style>
+</head>
+<body>
+
+
+
+<div class="topnav">
+    <center><a class="active" href="{% url 'index'%}">Twitter Sentiment Visualization Dashboard</a></center>
+    <!--        <a href="#about">About</a>-->
+    <a href="about">About</a>
+
+    <div class="search-container">
+        <form id = "searchBar" method='get' action='/search'>
+            <input type="text" placeholder="Search for #lockdown extension etc..." name="query" id = "search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+</div>
+
+<!--<div class="w3-container w3-green">-->
+<!--    <center><h1>Twitter Sentiment Visualization Dashboard </h1></center>-->
+
+<!--</div>-->
+
+<div class="about">
+    <div><h1><b>About Covid-19</b></h1>
+        <h3>Coronavirus disease 2019 (COVID-19) is an infectious disease caused by severe acute respiratory syndrome coronavirus.
+            It was first identified in December 2019 in Wuhan, Hubei, China, and has resulted in an ongoing pandemic.
+            The first confirmed case has been traced back to 17 November 2019 in Hubei.
+            As of 10 July 2020, more than 12.3 million cases have been reported across 188 countries and territories, resulting in more than 556,000 deaths.
+            More than 6.78 million people have recovered.</h3>
+    </div>
+    <div>
+        <h1><b>Objective</b></h1>
+        <h3>
+        <p>In view with the current scenario of the outbreak of the Covid-19 it is extremely necessary to have an application that can monitor and analyze the people's sentiments.
+            In this twitter sentiment analysis, our main objective is to extract the sentiments of the people on the outbreak of Covid-19 and the extension of the lockdown.
+            We will analyze this information and also visualize it graphically. Such information may be of high value to different sectors.</p>
+            <p>Talking about the Government, the government will get to know the sentiments of its people and take necessary actions to handle the scenario.
+                This may also help the government to enact better policies for the people. </p>
+            <p>The benefit of such kind of twitter sentiment analysis is not restricted to only one sector but it might affect a number of people in a positive sense. Now considering the scenario of the insurance sector, the companies may launch new policies seeing the current market conditions. The health sector will get to know about the medical needs of the people of the country.
+                Similarly, there are other sectors also which will be benefited with this twitter sentiment analysis.
+                To achieve this goal we will be calling the twitter API (tweepy) and get the tweets of the people.</p>
+           <p> To achieve this goal we will be performing a geo-location search. We will get the comments (sentiments) from the tweets. For authentication, we will import the OAuthHandler from the tweepy module and we will use TextBlob to tokenize the comments and NLTK for the analysis and extract the useful information from it.TextBlob aims to provide access to common text-processing operations through a familiar interface on which we will perform sentiment analysis. After getting the tweets tokenized, the polarity (positive, negative, neutral) is calculated. For handling the huge amount of data pandas dataframe is used.
+               After all the analysis of data is done we use the Python Django framework for visualizing the data in various ways.
+               We represent the real-time data in the form of various kinds of graphs, charts, and statistics.</p>
+        </h3>
+    </div>
+        <div><h1><b>About Code Smashers</b></h1>
+            <h3>Code Smashers consists of two members <b>Shivam Shivhare</b> (Team Lead) and <b>Ishan Kesarwani</b> (Technical Leader). We have tried to create a visualization
+        dashboard to visualize the sentiments of the people with respect to the covid-19 and the searched hashtags/keywords.</h3><br><br><br>
+    </div>
+</div>
+<div class="footer">
+    <p>Twitter Sentiment Visualization Dashboard  © Code Smashers</p>
+</div>
+
+
+</body>
+</html>
