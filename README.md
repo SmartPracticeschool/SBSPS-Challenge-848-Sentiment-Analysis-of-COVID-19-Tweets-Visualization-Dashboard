@@ -24,4 +24,7 @@ After all the analysis of data is done we use Python Django framework for visual
 
 2.Monitoring and filtering data – The data will be monitored on the real time basis. The data can also be filtered on the basis of the searched data.
 
-3.Visualizing through graphs – The analysis will be performed on the basis of the tweets of the people fetched using the twitter.       
+3.Visualizing through graphs – The analysis will be performed on the basis of the tweets of the people fetched using the twitter.  
+
+
+Youtube Link:-https://www.youtube.com/watch?v=_CfXZBpWRqY&t=120s
