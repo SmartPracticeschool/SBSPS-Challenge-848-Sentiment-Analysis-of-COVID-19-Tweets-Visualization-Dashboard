@@ -27,4 +27,4 @@ After all the analysis of data is done we use Python Django framework for visual
 3.Visualizing through graphs – The analysis will be performed on the basis of the tweets of the people fetched using the twitter.  
 
 
-Youtube Link:-https://www.youtube.com/watch?v=_CfXZBpWRqY&t=120s
+Project Video Presentation Youtube Link:-https://www.youtube.com/watch?v=_CfXZBpWRqY
