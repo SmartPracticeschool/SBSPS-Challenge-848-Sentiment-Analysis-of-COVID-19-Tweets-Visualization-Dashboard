@@ -1,4 +1,7 @@
 # SBSPS-Challenge-848-Sentiment-Analysis-of-COVID-19-Tweets-Visualization-Dashboard
+
+Project Video Presentation Youtube Link:-https://www.youtube.com/watch?v=_CfXZBpWRqY
+
 The Twitter Sentiment Analysis is a predictive model trained using Machine Learning. The project is developed in Python programming language with Python Django as a framework.
 The data to be analysed and visualized are gathered from the twitter itself using the tweepy API.
 
