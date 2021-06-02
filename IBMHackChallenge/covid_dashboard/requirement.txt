@@ -229,7 +229,7 @@ tweepy==3.8.0
 twitter==1.18.0
 ujson==1.35
 unicodecsv==0.14.1
-urllib3==1.25.8
+urllib3==1.26.5
 views==0.3
 watchdog==0.10.2
 watson-developer-cloud==2.10.1
