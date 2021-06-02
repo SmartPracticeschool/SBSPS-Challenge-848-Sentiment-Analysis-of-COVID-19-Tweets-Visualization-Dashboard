@@ -75,7 +75,7 @@ tqdm==4.46.0
 traitlets==4.3.3
 tweepy==3.8.0
 twitter==1.18.0
-urllib3==1.25.9
+urllib3==1.26.5
 views==0.3
 watson-developer-cloud==2.10.1
 wcwidth==0.1.9
